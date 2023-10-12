@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  Int           @id @default(autoincrement())
+  gr_no               Int           @unique
+  email               String        @unique
+  password            String
+  first_name          String
+  last_name           String
+  gender              String
+  branch              String
+  bio                 String?
+  avatarUrl           String?
+  forgotPasswordToken String?       @unique
+  isAdmin             Boolean       @default(false)
+  certificates        Certificate[]
+  post                Post[]
+}
+
+model Certificate {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  imageUrl    String
+  link        String?
+  uploaded_on DateTime
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@index([userId], map: "Certificate_userId_fkey")
+}
+
+model Post {
+  id             Int     @id @default(autoincrement())
+  caption        String?
+  imageUrl       String?
+  certificate_id String?
+  userId         Int?
+  User           User?   @relation(fields: [userId], references: [id])
+
+  @@index([userId], map: "Post_userId_fkey")
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
+}
