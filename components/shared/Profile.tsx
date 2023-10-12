@@ -9,6 +9,9 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
   return (
     <div>
       My Profile <h1>{data.first_name}</h1>
+      <h1>{ data.last_name}</h1>
+      <h1>{data.email}</h1>
+      
     </div>
   );
 };
