@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { handleLogin } from "./handleLogin";
 
-export const prisma = new PrismaClient();
+const prisma = new PrismaClient();
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {

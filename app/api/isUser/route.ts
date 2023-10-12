@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { PrismaClient } from "@prisma/client";
 
-export const prisma = new PrismaClient();
+const prisma = new PrismaClient();
 
 export async function POST(request: NextRequest) {
   const gr = await request.json();
