@@ -176,7 +176,7 @@ export default function Loginform() {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your Password" {...field} />
+                      <Input placeholder="Your Password" type="password" {...field} />
                     </FormControl>
                     <FormDescription>
                       <Dialog open={open} onOpenChange={setOpen}>
