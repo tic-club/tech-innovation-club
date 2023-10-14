@@ -141,7 +141,7 @@ export default function Loginform() {
   }
 
   return (
-    <div className="">
+    <div className="h-1/2 w-full md:h-full md:w-[40vw] p-2 z-50 flex items-center justify-center">
       <Tabs defaultValue="email" className="w-[320px] md:w-[400px]">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="email">Email</TabsTrigger>
@@ -176,7 +176,11 @@ export default function Loginform() {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your Password" {...field} />
+                      <Input
+                        placeholder="Your Password"
+                        type="password"
+                        {...field}
+                      />
                     </FormControl>
                     <FormDescription>
                       <Dialog open={open} onOpenChange={setOpen}>
