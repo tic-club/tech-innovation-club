@@ -1,28 +1,36 @@
+import {
+  BanIcon,
+  GraduationCapIcon,
+  HomeIcon,
+  SearchIcon,
+  UserIcon,
+  Users,
+} from "lucide-react";
+
 export const sidebarLinks = [
-    {
-      imgURL: "/assets/home.svg",
-      route: "/",
-      label: "Home",
-    },
-    {
-      imgURL: "/assets/search.svg",
-      route: "/search",
-      label: "Search",
-    },
-    {
-      imgURL: "/assets/events.png",
-      route: "/events",
-      label: "Events",
-    },
-    {
-      imgURL: "/assets/teachers.png",
-      route: "/teachers",
-      label: "Teachers",
-    },
-    {
-      imgURL: "/assets/students.png",
-      route: "/students",
-      label: "Students",
-    }
-  ];
-  
+  {
+    imgURL: <HomeIcon height={25} width={25} />,
+    route: "/",
+    label: "Home",
+  },
+  {
+    imgURL: <SearchIcon height={25} width={25} />,
+    route: "/search",
+    label: "Search",
+  },
+  {
+    imgURL: <Users height={25} width={25} />,
+    route: "/events",
+    label: "Events",
+  },
+  {
+    imgURL: <UserIcon height={25} width={25} />,
+    route: "/teachers",
+    label: "Teachers",
+  },
+  {
+    imgURL: <GraduationCapIcon height={25} width={25} />,
+    route: "/students",
+    label: "Students",
+  },
+];

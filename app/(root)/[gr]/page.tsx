@@ -20,9 +20,6 @@ export default function Page({ params: { gr } }: Params) {
         const isUserResponse = await axios.post("/api/isUser", gr);
         const isUser = isUserResponse.data.isUser;
         const userData = isUserResponse.data.user;
-
-        console.log(isUserResponse);
-
         setIsCurrentUser(isUser);
         setUserData(userData);
       } catch (error) {

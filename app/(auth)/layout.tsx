@@ -16,9 +16,11 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className={inter.className}>
-      {children}
-      <Toaster />
-    </div>
+    <html lang="en">
+      <body className={inter.className}>
+        {children}
+        <Toaster />
+      </body>
+    </html>
   );
 }

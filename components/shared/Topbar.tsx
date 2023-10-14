@@ -1,5 +1,5 @@
 "use client";
-import { Menu, MenuIcon, Moon, Sun, UserCircle2 } from "lucide-react";
+import { InfoIcon, Menu, MenuIcon, Moon, Sun, UserCircle2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -36,11 +36,26 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { useTheme } from "next-themes";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 function Topbar() {
   const { setTheme } = useTheme();
+  const router = useRouter();
+
+  async function logout() {
+    await axios.get("/api/logout");
+    router.push("/");
+  }
+
+  async function profile() {
+    const token = await axios.get("/api/getTokenValue");
+    const gr = token.data.gr_no;
+    router.push(`/${gr}`);
+  }
+
   return (
-    <nav className="fixed top-0 z-30 flex w-full items-center justify-between bg-slate-600 dark:bg-black px-6 py-3">
+    <nav className="fixed top-0 z-30 flex w-full items-center justify-between bg-[#968ff5] dark:bg-[#101012] px-6 py-3">
       <Link href="/" className=" flex items-center gap-4">
         <Image
           src="/assets/TIC_LOG.png"
@@ -48,12 +63,10 @@ function Topbar() {
           width={40}
           height={40}
         />
-        <p className=" text-heading3-bold text-[#FFFFFF] max-xs:hidden">
-          TIC-club
-        </p>
+        <p className=" text-heading3-bold max-xs:hidden">TIC Club</p>
       </Link>
 
-      <div className="  ">
+      <div className="flex justify-center items-center gap-2">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon">
@@ -79,8 +92,12 @@ function Topbar() {
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <button className=" focus:outline-none">
-              <UserCircle2 height={40} width={40} className=" text-[#fff] " />
+            <button className="focus:outline-none">
+              <div className="h-15 w-fit rounded-sm p-1 px-3 cursor-pointer border bg-slate-100 dark:bg-black flex justify-between items-center gap-3">
+                <UserCircle2 height={30} width={30} />
+                <h1 className="hidden md:block">Personal</h1>
+                <InfoIcon height={24} width={24} className="hidden md:block" />
+              </div>
             </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56 mx-10">
@@ -89,7 +106,7 @@ function Topbar() {
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <User className="mr-2 h-4 w-4" />
-                <span>Profile</span>
+                <span onClick={profile}>Profile</span>
                 <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
               </DropdownMenuItem>
               <DropdownMenuItem>
@@ -159,7 +176,7 @@ function Topbar() {
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut className="mr-2 h-4 w-4" />
-              <span>Log out</span>
+              <span onClick={logout}>Log out</span>
               <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuContent>
