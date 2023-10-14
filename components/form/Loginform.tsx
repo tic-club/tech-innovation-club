@@ -141,8 +141,15 @@ export default function Loginform() {
   }
 
   return (
-    <div className="h-1/2 w-full md:h-full md:w-[40vw] p-2 z-50 flex items-center justify-center">
-      <Tabs defaultValue="email" className="w-[320px] md:w-[400px]">
+    <div className="h-1/2 w-full md:h-full md:w-[40vw] p-5 z-50 flex items-center justify-center">
+      <Tabs
+        defaultValue="email"
+        className="w-[320px] h-[525px] md:w-[400px]  border shadow-2xl rounded-lg p-5"
+      >
+        <h1 className="text-2xl font-semibold mb-5">Login 🔐</h1>
+        <p className="text-sm font-thin my-3">
+          *use college email YourFirstName.YourGrNo@srttc.ac.in
+        </p>
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="email">Email</TabsTrigger>
           <TabsTrigger value="gr">Gr. No.</TabsTrigger>
@@ -342,6 +349,9 @@ export default function Loginform() {
             </form>
           </Form>
         </TabsContent>
+        <p className="mt-5 font-normal text-sm">
+          Contact with college if any issue.{" "}
+        </p>
       </Tabs>
     </div>
   );

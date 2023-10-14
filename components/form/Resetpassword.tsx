@@ -86,7 +86,7 @@ export default function ResetForm(token: any) {
   }
 
   return (
-    <div className="w-[320px] md:w-[400px]">
+    <div className="w-[320px] md:w-[400px] border shadow-2xl rounded-lg p-5">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
