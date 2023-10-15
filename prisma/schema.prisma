@@ -48,8 +48,12 @@ model Post {
   @@index([userId], map: "Post_userId_fkey")
 }
 
-model Admin {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
+model Announcement {
+  id        Int      @id @default(autoincrement())
+  title     String
+  for       String?
+  content   String
+  link      String?
+  createdAt DateTime @default(now())
+  creatorId Int?
 }

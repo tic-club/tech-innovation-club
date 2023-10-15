@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export type User = {
   id: number;
   gr_no: number;
@@ -11,4 +13,13 @@ export type User = {
   avatarUrl: string | null;
   forgotPasswordToken: string | null;
   isAdmin: boolean;
+};
+
+export type Annousments = {
+  id: number;
+  title: String;
+  for: String | undefined;
+  content: String;
+  link: String | undefined;
+  createdAt: Date;
 };

@@ -22,7 +22,7 @@ function LeftSidebar() {
               key={link.label}
               className={`leftsidebar_link relative flex justify-start gap-4 rounded-lg p-4 ${
                 isActive
-                  ? "bg-[#968ff5]"
+                  ? "bg-[#857df8]"
                   : "hover:bg-slate-200 dark:hover:bg-gray-900"
               }`}
             >

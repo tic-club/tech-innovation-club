@@ -66,34 +66,35 @@
   }
 
   .light {
-    --background: 222.2 84% 95%; /* Adjusted lightness value */
-    --foreground: 210 40% 2%;  /* Adjusted lightness value */
+  --background: 222.2 84% 100%;
+  --foreground: 210 40% 2%; /* Adjusted lightness value */
  
-    --card: 222.2 84% 95%;  /* Adjusted lightness value */
-    --card-foreground: 210 40% 2%;  /* Adjusted lightness value */
+  --card: 222.2 84% 95%;
+  --card-foreground: 210 40% 2%; /* Adjusted lightness value */
  
-    --popover: 222.2 84% 95%;  /* Adjusted lightness value */
-    --popover-foreground: 210 40% 2%;  /* Adjusted lightness value */
+  --popover: 222.2 84% 95%;
+  --popover-foreground: 210 40% 2%; /* Adjusted lightness value */
  
-    --primary: 210 40% 2%;  /* Adjusted lightness value */
-    --primary-foreground: 222.2 47.4% 85%;  /* Adjusted lightness value */
+  --primary: 210 40% 2%; /* Adjusted lightness value */
+  --primary-foreground: 222.2 47.4% 85%; /* Adjusted lightness value */
  
-    --secondary: 217.2 32.6% 82.5%;  /* Adjusted lightness value */
-    --secondary-foreground: 210 40% 2%;  /* Adjusted lightness value */
+  --secondary: 217.2 32.6% 82.5%; /* Adjusted lightness value */
+  --secondary-foreground: 210 40% 2%; /* Adjusted lightness value */
  
-    --muted: 217.2 32.6% 82.5%;  /* Adjusted lightness value */
-    --muted-foreground: 215 20.2% 35.1%;  /* Adjusted lightness value */
+  --muted: 217.2 32.6% 82.5%; /* Adjusted lightness value */
+  --muted-foreground: 215 20.2% 35.1%; /* Adjusted lightness value */
  
-    --accent: 217.2 32.6% 82.5%;  /* Adjusted lightness value */
-    --accent-foreground: 210 40% 2%;  /* Adjusted lightness value */
+  --accent: 217.2 32.6% 82.5%; /* Adjusted lightness value */
+  --accent-foreground: 210 40% 2%; /* Adjusted lightness value */
  
-    --destructive: 0 62.8% 69.6%;  /* Adjusted lightness value */
-    --destructive-foreground: 210 40% 2%;  /* Adjusted lightness value */
+  --destructive: 0 62.8% 69.6%; /* Adjusted lightness value */
+  --destructive-foreground: 210 40% 2%; /* Adjusted lightness value */
  
-    --border: 217.2 32.6% 82.5%;  /* Adjusted lightness value */
-    --input: 217.2 32.6% 82.5%;  /* Adjusted lightness value */
-    --ring: 212.7 26.8% 16.1%;  /* Adjusted lightness value */
+  --border: 217.2 32.6% 82.5%; /* Adjusted lightness value */
+  --input: 217.2 32.6% 82.5%; /* Adjusted lightness value */
+  --ring: 212.7 26.8% 16.1%; /* Adjusted lightness value */
 }
+
 
 }
  
