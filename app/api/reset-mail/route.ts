@@ -1,9 +1,7 @@
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/db/client";
 import { NextRequest, NextResponse } from "next/server";
 import { sendEmail, mailOptions } from "@/mail/nodemailer";
 import bcryptjs from "bcryptjs";
-
-const prisma = new PrismaClient();
 
 export async function POST(request: NextRequest) {
   const { email } = await request.json();

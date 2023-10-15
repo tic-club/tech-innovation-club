@@ -7,11 +7,13 @@ type ProfileProps = {
 
 const Profilevisit: React.FC<ProfileProps> = ({ data }) => {
   return (
-    <div>
-      Users Profile <h1>{data.first_name}</h1>
-      <h1>{ data.last_name}</h1>
-      <h1>{data.email}</h1>
-      <h1>{data.gender}</h1>
+    <div className=" gap-4">
+      <h1 className=" text-5xl">User Profile</h1>
+      <h1 className=" text-xl">
+        {data.first_name} {data.last_name}
+      </h1>
+      <h1 className=" text-xl">{data.email}</h1>
+      <h1 className=" text-xl">{data.gender}</h1>
     </div>
   );
 };

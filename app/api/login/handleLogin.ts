@@ -2,9 +2,7 @@ import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { sendEmail, mailOptions } from "@/mail/nodemailer";
 import bcryptjs from "bcryptjs";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "@/db/client";
 
 export async function handleLogin(
   grNoOrEmail: string,
