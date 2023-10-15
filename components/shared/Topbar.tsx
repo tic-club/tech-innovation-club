@@ -45,13 +45,13 @@ function Topbar() {
 
   async function logout() {
     await axios.get("/api/logout");
-    router.push("/");
+    router.push("/login");
   }
 
   async function profile() {
     const token = await axios.get("/api/getTokenValue");
-    const gr = token.data.gr_no;
-    router.push(`/${gr}`);
+    const grno = token.data.gr_no;
+    router.push(`/${grno}`);
   }
 
   return (
@@ -104,9 +104,9 @@ function Topbar() {
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={profile}>
                 <User className="mr-2 h-4 w-4" />
-                <span onClick={profile}>Profile</span>
+                <span>Profile</span>
                 <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
               </DropdownMenuItem>
               <DropdownMenuItem>
@@ -174,9 +174,9 @@ function Topbar() {
               <span>API</span>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={logout}>
               <LogOut className="mr-2 h-4 w-4" />
-              <span onClick={logout}>Log out</span>
+              <span>Log out</span>
               <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuContent>

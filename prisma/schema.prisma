@@ -38,22 +38,19 @@ model Certificate {
 }
 
 model Post {
-  id             Int     @id @default(autoincrement())
+  id             Int      @id @default(autoincrement())
   caption        String?
   imageUrl       String?
   certificate_id String?
   userId         Int?
-  User           User?   @relation(fields: [userId], references: [id])
+  User           User?    @relation(fields: [userId], references: [id])
+  dateCreated    DateTime @default(now())
 
   @@index([userId], map: "Post_userId_fkey")
 }
 
-model Announcement {
-  id        Int      @id @default(autoincrement())
-  title     String
-  for       String?
-  content   String
-  link      String?
-  createdAt DateTime @default(now())
-  creatorId Int?
+model Admin {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
 }

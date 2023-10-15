@@ -103,12 +103,12 @@
     @apply border-border m-0 p-0;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-y-visible;
   }
 }
 @layer utilities {
   .main-container {
-    @apply flex min-h-screen flex-1 flex-col items-center px-6 pb-10 pt-28 max-md:pb-32 sm:px-10;
+    @apply flex min-h-screen flex-1 flex-col items-center px-6 pb-10 pt-20 max-md:pb-32 sm:px-10;
   }
   .leftsidebar {
     @apply sticky left-0 top-0 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r pb-5 pt-28 max-md:hidden;

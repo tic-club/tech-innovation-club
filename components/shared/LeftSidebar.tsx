@@ -1,8 +1,9 @@
 "use client";
 import { sidebarLinks } from "@/constants";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import Composecard from "../card/Composecard";
+import { Button } from "../ui/button";
 
 function LeftSidebar() {
   const router = useRouter();
@@ -31,6 +32,11 @@ function LeftSidebar() {
             </Link>
           );
         })}
+
+        <div className="mt-5 flex items-center justify-center">
+          {/* <Button className="h-12 w-36 font-semibold p-3 text-md rounded-3xl"> */}
+          <Composecard />
+        </div>
       </div>
     </section>
   );
