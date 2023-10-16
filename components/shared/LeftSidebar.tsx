@@ -1,13 +1,24 @@
 "use client";
 import { sidebarLinks } from "@/constants";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Composecard from "../card/Composecard";
-import { Button } from "../ui/button";
+import Annouscard from "../card/Annouscard";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function LeftSidebar() {
-  const router = useRouter();
   const pathname = usePathname();
+
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    async function getTokenValue() {
+      const res = await axios.get("/api/getTokenValue");
+      setIsAdmin(res.data.isAdmin);
+    }
+    getTokenValue();
+  });
 
   return (
     <section className=" leftsidebar custom-scrollbar fixed left-0 top-0 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r-2 pb-5 pt-28  max-md:hidden">
@@ -33,9 +44,9 @@ function LeftSidebar() {
           );
         })}
 
-        <div className="mt-5 flex items-center justify-center">
-          {/* <Button className="h-12 w-36 font-semibold p-3 text-md rounded-3xl"> */}
+        <div className="mt-5 flex flex-col items-center justify-center gap-3">
           <Composecard />
+          {isAdmin ? <Annouscard /> : ""}
         </div>
       </div>
     </section>

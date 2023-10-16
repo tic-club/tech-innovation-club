@@ -16,7 +16,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useToast } from "../ui/use-toast";
 
-export default function Composecard() {
+export default function Annouscard() {
   const { toast } = useToast();
 
   const [data, setData] = useState({
@@ -53,7 +53,7 @@ export default function Composecard() {
             variant="outline"
             className="h-12 w-36 font-semibold p-3 text-md rounded-3xl shadow-2xl bg-[#857df8] hover:bg-[#857df8]/90"
           >
-            Post
+            Annouce
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">

@@ -50,7 +50,7 @@ export default function feed() {
   return (
     <div className="w-full">
       <div>
-        <Button className="w-full h-10 rounded-3xl text-white">
+        <Button className="w-full h-10 rounded-3xl text-white md:hidden">
           Check out new Announcements <BellIcon height={18} />
         </Button>
       </div>

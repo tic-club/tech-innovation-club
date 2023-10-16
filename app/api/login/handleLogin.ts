@@ -25,6 +25,7 @@ export async function handleLogin(
         id: user.id,
         email: user.email,
         gr_no: user.gr_no,
+        isAdmin: user.isAdmin,
       };
 
       const token = jwt.sign(tokenData, process.env.JWT_SECRET!, {

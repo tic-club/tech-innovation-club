@@ -8,6 +8,9 @@ export async function GET(request: NextApiRequest) {
       include: {
         User: true,
       },
+      orderBy: {
+        dateCreated: "desc",
+      },
     });
     console.log(posts);
 
