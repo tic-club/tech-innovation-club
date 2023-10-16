@@ -14,6 +14,7 @@ const Profilevisit: React.FC<ProfileProps> = ({ data }) => {
       </h1>
       <h1 className=" text-xl">{data.email}</h1>
       <h1 className=" text-xl">{data.gender}</h1>
+      <h1 className=" text-xl">{data.branch}</h1>
     </div>
   );
 };

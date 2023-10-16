@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 import Resetpassword from "@/components/form/Resetpassword";
 
 type Params = {

@@ -91,7 +91,7 @@ export default function SearchPage() {
           onChange={(e) => setQuery(e.target.value)}
         />
         <SearchIcon
-          className="absolute top-0 right-0  mt-1 mr-2"
+          className="absolute top-0 right-0  mt-1 mr-2 cursor-pointer"
           height={28}
           width={28}
         />

@@ -18,8 +18,8 @@ model User {
   branch              String
   bio                 String?
   avatarUrl           String?
-  forgotPasswordToken String?       @unique
   isAdmin             Boolean       @default(false)
+  forgotPasswordToken String?       @unique
   certificates        Certificate[]
   post                Post[]
 }
