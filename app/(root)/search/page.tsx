@@ -44,7 +44,7 @@ export default function SearchPage() {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1>User Search</h1>
+      <h1 className=" mb-5 text-xl ">User Search</h1>
 
       <div className="relative w-64">
         <input
@@ -55,7 +55,7 @@ export default function SearchPage() {
           onChange={(e) => setQuery(e.target.value)}
         />
         <SearchIcon
-          className="absolute top-0 right-0  mt-1 mr-2 cursor-pointer"
+          className="absolute top-0 right-0 mt-1 mr-2 cursor-pointer"
           height={28}
           width={28}
         />

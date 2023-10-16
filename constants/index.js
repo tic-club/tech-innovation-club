@@ -34,3 +34,15 @@ export const sidebarLinks = [
     label: "Students",
   },
 ];
+
+export const profilePhotos = [
+  {
+    imgURL: "@/assets/dummy1.jpg",
+  },
+  {
+    imgURL: "@/assets/dummy2.jpg",
+  },
+  {
+    imgURL: "@/assets/dummy3.jpg",
+  },
+];

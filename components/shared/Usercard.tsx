@@ -25,7 +25,7 @@ export default function UserCard({
           <UserCircle2 height={40} width={40} />
         </div>
 
-        <div className="flex-1 text-ellipsis">
+        <div className="flex-1 text-ellipsis cursor-pointer">
           <h4 className="text-base-semibold text-light-1">
             {first_name} {last_name}
           </h4>

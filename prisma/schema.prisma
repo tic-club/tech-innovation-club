@@ -18,8 +18,8 @@ model User {
   branch              String
   bio                 String?
   avatarUrl           String?
-  forgotPasswordToken String?       @unique
   isAdmin             Boolean       @default(false)
+  forgotPasswordToken String?       @unique
   certificates        Certificate[]
   post                Post[]
 }
@@ -38,12 +38,13 @@ model Certificate {
 }
 
 model Post {
-  id             Int     @id @default(autoincrement())
+  id             Int      @id @default(autoincrement())
   caption        String?
   imageUrl       String?
   certificate_id String?
   userId         Int?
-  User           User?   @relation(fields: [userId], references: [id])
+  dateCreated    DateTime @default(now())
+  User           User?    @relation(fields: [userId], references: [id])
 
   @@index([userId], map: "Post_userId_fkey")
 }
