@@ -7,10 +7,10 @@ export async function POST(request: NextRequest) {
     const { query } = await request.json();
 
     if (!query) {
-      return {
-        status: 400,
-        body: { error: "Missing query parameter" },
-      };
+      return NextResponse.json(
+        { error: "Missing query parameter" },
+        { status: 400 }
+      );
     }
 
     const allUsers: User[] = await prisma.user.findMany();
@@ -26,14 +26,13 @@ export async function POST(request: NextRequest) {
       );
     });
 
-    return NextResponse.json({
-      status: 200,
-      body: users,
-    });
+    return NextResponse.json({ body: users }, { status: 200 });
   } catch (error) {
-    return {
-      status: 500,
-      body: { error: "An error occurred while processing the request." },
-    };
+    return NextResponse.json(
+      {
+        error: "An error occurred while processing the request.",
+      },
+      { status: 500 }
+    );
   }
 }

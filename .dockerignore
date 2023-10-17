@@ -1,0 +1,13 @@
+# Exclude development and build-related files
+node_modules
+.next
+out
+.cache
+
+# Exclude source control files and directories
+.git
+.gitignore
+
+# Exclude project-specific files (adjust as needed)
+
+secrets.json

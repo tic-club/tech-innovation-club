@@ -1,8 +1,7 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/db/client";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: NextApiRequest) {
+export async function GET(request: NextRequest) {
   try {
     const posts = await prisma.post.findMany({
       include: {

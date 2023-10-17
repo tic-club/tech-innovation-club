@@ -55,8 +55,7 @@ export default function SearchPage() {
     const handleSearch = async () => {
       try {
         if (query.length <= 2) {
-          setSearchResults([]);
-          return;
+          return setSearchResults([]);
         }
         const response = await fetch("/api/search", {
           method: "POST",
