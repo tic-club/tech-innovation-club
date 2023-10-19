@@ -13,6 +13,17 @@ export type User = {
   avatarUrl: string | null;
   forgotPasswordToken: string | null;
   isAdmin: boolean;
+
+  post: [
+    {
+      id: number;
+      caption: String;
+      imageUrl: string;
+      certificate_id: number;
+      userId: number;
+      dateCreated: Date;
+    }
+  ];
 };
 
 export type Annousments = {

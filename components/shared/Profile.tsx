@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
+import Profilepostcard from "../card/Profilepostcard";
 
 type ProfileProps = {
   data: User;
@@ -73,50 +74,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
-                <div className="max-md:flex max-md:flex-col max-md:gap-4 max-md:items-center grid grid-cols-3 grid-rows-3 gap-4">
-                  <Image
-                    src="/assets/dummy1.jpg"
-                    alt={"certificate"}
-                    height={600}
-                    width={260}
-                    className=" aspect-[4/3] rounded-md"
-                  />
-                  <Image
-                    src="/assets/dummy2.jpg"
-                    alt={"certificate"}
-                    height={600}
-                    width={260}
-                    className="aspect-[4/3] rounded-md"
-                  />
-                  <Image
-                    src="/assets/dummy3.jpg"
-                    alt={"certificate"}
-                    height={600}
-                    width={260}
-                    className="aspect-[4/3] rounded-md"
-                  />
-                  <Image
-                    src="/assets/dummy4.jpg"
-                    alt={"certificate"}
-                    height={600}
-                    width={260}
-                    className="aspect-[4/3] rounded-md"
-                  />
-                  <Image
-                    src="/assets/dummy5.jpg"
-                    alt={"certificate"}
-                    height={600}
-                    width={260}
-                    className="aspect-[4/3] rounded-md"
-                  />
-                  <Image
-                    src="/assets/dummy6.jpg"
-                    alt={"certificate"}
-                    height={600}
-                    width={260}
-                    className="aspect-[4/3] rounded-md"
-                  />
-                </div>
+                <Profilepostcard />
               </CardContent>
             </Card>
           </TabsContent>
