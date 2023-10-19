@@ -16,9 +16,6 @@ COPY . .
 # Expose the port your app will run on
 EXPOSE 3000
 
-# Define environment variables for Prisma and MySQL connection
-ENV DATABASE_URL=mysql://root:Krish@123@localhost:3306/tic
-
 # Build the Prisma schema and generate Prisma Client
 RUN npx prisma generate
 
