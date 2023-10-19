@@ -47,7 +47,7 @@ const Profile: React.FC<ProfileProps> = ({ data }) => {
       </div>
       <hr className=" m-2" />
       <section className="post">
-        <Tabs defaultValue="account" className="w-auto flex-shrink">
+        <Tabs defaultValue="post" className="w-auto flex-shrink">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="post">
               {" "}

@@ -12,7 +12,7 @@ import {
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useToast } from "../ui/use-toast";
 
@@ -24,12 +24,18 @@ export default function Annouscard() {
     caption: "",
   });
 
+  useEffect(() => {
+    async function getTokenId() {
+      const token = await axios.get("/api/getTokenValue");
+
+      console.log(token.data.id, "token");
+      setData({ ...data, id: token.data.id });
+      console.log(data);
+    }
+    getTokenId();
+  }, [data.id]);
+
   async function submitHandler() {
-    const token = await axios.get("/api/getTokenValue");
-    const userId = token.data.id;
-    console.log(token.data.id, "token");
-    setData({ ...data, id: token.data.id });
-    console.log(data);
     const res = await axios.post("/api/post", data);
 
     if (res.status === 200) {

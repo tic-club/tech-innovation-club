@@ -12,7 +12,7 @@ import {
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useToast } from "../ui/use-toast";
 
@@ -24,14 +24,19 @@ export default function Composecard() {
     caption: "",
   });
 
-  async function submitHandler() {
-    const token = await axios.get("/api/getTokenValue");
-    const userId = token.data.id;
-    console.log(token.data.id, "token");
-    setData({ ...data, id: token.data.id });
-    console.log(data);
-    const res = await axios.post("/api/post", data);
+  useEffect(() => {
+    async function getTokenId() {
+      const token = await axios.get("/api/getTokenValue");
 
+      console.log(token.data.id, "token");
+      setData({ ...data, id: token.data.id });
+      console.log(data);
+    }
+    getTokenId();
+  }, [data.id]);
+
+  async function submitHandler() {
+    const res = await axios.post("/api/post", data);
     if (res.status === 200) {
       toast({
         title: "Posted Succesfully ✅",
