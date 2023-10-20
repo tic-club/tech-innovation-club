@@ -104,20 +104,21 @@ function Topbar() {
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={profile} className="cursor-pointer">
                 <User className="mr-2 h-4 w-4 " />
-                <span onClick={profile} className="cursor-pointer">
-                  Profile
-                </span>
+                <span>Profile</span>
                 <DropdownMenuShortcut>shift/⌘ + P</DropdownMenuShortcut>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
 
-            <DropdownMenuItem>
-              <Github className="mr-2 h-4 w-4" />
-              <span>GitHub</span>
-            </DropdownMenuItem>
+            <Link href={"/https://github.com/tic-club"}>
+              <DropdownMenuItem className="cursor-pointer">
+                <Github className="mr-2 h-4 w-4" />
+                <span>GitHub</span>
+              </DropdownMenuItem>
+            </Link>
+
             <DropdownMenuItem>
               <LifeBuoy className="mr-2 h-4 w-4" />
               <span>Support</span>
@@ -127,9 +128,9 @@ function Topbar() {
               <span>API</span>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={logout} className="cursor-pointer">
               <LogOut className="mr-2 h-4 w-4" />
-              <span onClick={logout}>Log out</span>
+              <span>Log out</span>
               <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuContent>
