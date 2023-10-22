@@ -15,6 +15,7 @@ function LeftSidebar() {
   useEffect(() => {
     async function getTokenValue() {
       const res = await axios.get("/api/getTokenValue");
+      console.log(res.data);
       setIsAdmin(res.data.isAdmin);
     }
     getTokenValue();
@@ -46,7 +47,6 @@ function LeftSidebar() {
 
         <div className="mt-5 flex flex-col items-center justify-center gap-3">
           <Composecard />
-          {isAdmin ? <Annouscard /> : ""}
         </div>
       </div>
     </section>

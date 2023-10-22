@@ -11,9 +11,11 @@ CREATE TABLE `User` (
     `bio` VARCHAR(191) NULL,
     `avatarUrl` VARCHAR(191) NULL,
     `isAdmin` BOOLEAN NOT NULL DEFAULT false,
+    `forgotPasswordToken` VARCHAR(191) NULL,
 
     UNIQUE INDEX `User_gr_no_key`(`gr_no`),
     UNIQUE INDEX `User_email_key`(`email`),
+    UNIQUE INDEX `User_forgotPasswordToken_key`(`forgotPasswordToken`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -27,6 +29,7 @@ CREATE TABLE `Certificate` (
     `uploaded_on` DATETIME(3) NOT NULL,
     `userId` INTEGER NOT NULL,
 
+    INDEX `Certificate_userId_fkey`(`userId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -37,7 +40,9 @@ CREATE TABLE `Post` (
     `imageUrl` VARCHAR(191) NULL,
     `certificate_id` VARCHAR(191) NULL,
     `userId` INTEGER NULL,
+    `dateCreated` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
+    INDEX `Post_userId_fkey`(`userId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

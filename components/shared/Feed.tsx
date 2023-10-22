@@ -61,7 +61,7 @@ export default function feed() {
       </div>
 
       {posts.map((post: any) => (
-        <Card className="w-full my-3">
+        <Card className="w-full my-3" key={post.User.id}>
           <CardHeader>
             <CardTitle>
               <div className="flex items-center gap-3">
@@ -107,15 +107,15 @@ export default function feed() {
           </CardHeader>
           <CardContent className="m-auto">
             {post.imageUrl ? (
-              <Image src={post.imageUrl} height={100} width={100} alt="post" />
-            ) : (
               <Image
-                className="w-full h-auto"
-                src={"/login.jpg"}
+                src={post.imageUrl}
                 height={500}
                 width={500}
+                loading="lazy"
                 alt="post"
               />
+            ) : (
+              ""
             )}
           </CardContent>
           <CardFooter>

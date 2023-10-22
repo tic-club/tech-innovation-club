@@ -5,12 +5,12 @@ export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
 
-    console.log(data);
-
+    console.log(data, "post data");
     const createdPost = await prisma.post.create({
       data: {
         userId: data.id,
         caption: data.caption,
+        imageUrl: data.path,
       },
     });
 

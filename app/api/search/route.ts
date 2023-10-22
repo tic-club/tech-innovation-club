@@ -13,18 +13,27 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const allUsers: User[] = await prisma.user.findMany();
+    const allUsers: any = await prisma.user.findMany({
+      include: { post: true },
+    });
 
     const searchString = new RegExp(query, "i");
 
-    const users: User[] = allUsers.filter((user) => {
-      return (
-        user.first_name.match(searchString) ||
-        user.last_name.match(searchString) ||
-        user.email.match(searchString) ||
-        String(user.gr_no) === query
-      );
-    });
+    const users: User[] = allUsers.filter(
+      (user: {
+        first_name: string;
+        last_name: string;
+        email: string;
+        gr_no: any;
+      }) => {
+        return (
+          user.first_name.match(searchString) ||
+          user.last_name.match(searchString) ||
+          user.email.match(searchString) ||
+          String(user.gr_no) === query
+        );
+      }
+    );
 
     return NextResponse.json({ body: users }, { status: 200 });
   } catch (error) {

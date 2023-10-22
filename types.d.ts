@@ -14,16 +14,16 @@ export type User = {
   forgotPasswordToken: string | null;
   isAdmin: boolean;
 
-  post: [
-    {
-      id: number;
-      caption: String;
-      imageUrl: string;
-      certificate_id: number;
-      userId: number;
-      dateCreated: Date;
-    }
-  ];
+  post: [Post];
+};
+
+type Post = {
+  id: number;
+  caption: String;
+  imageUrl: string;
+  certificate_id: number;
+  userId: number;
+  dateCreated: Date;
 };
 
 export type Annousments = {
