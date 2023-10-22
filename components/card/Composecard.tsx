@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
@@ -30,10 +29,16 @@ export default function Composecard() {
 
   useEffect(() => {
     async function getTokenId() {
-      const token = await axios.get("/api/getTokenValue");
-
-      setData((prevData) => ({ ...prevData, id: token.data.id }));
-      console.log(data, "data");
+      try {
+        const token = await axios.get("/api/getTokenValue");
+        setData((prevData) => ({ ...prevData, id: token.data.id }));
+      } catch (error) {
+        console.error("Error fetching token:", error);
+        toast({
+          title: "An error occurred while fetching token.",
+          duration: 2000,
+        });
+      }
     }
     getTokenId();
   }, []);
@@ -52,23 +57,19 @@ export default function Composecard() {
       if (file) {
         formData.append("file", file);
 
-        const res = await axios.post("/api/upload-file", formData, {
+        const uploadResponse = await axios.post("/api/upload-file", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         });
 
-        const path2 = res.data.path;
-        console.log(path2);
+        const path2 = uploadResponse.data.path;
 
-        setData({ ...data, path: path2 });
+        if (uploadResponse.status === 200) {
+          const postData = { ...data, path: path2 };
+          const postResponse = await axios.post("/api/post", postData);
 
-        console.log(data, "dattaa");
-
-        if (res.status === 200) {
-          const res2 = await axios.post("/api/post", data);
-
-          if (res2.status === 200) {
+          if (postResponse.status === 200) {
             toast({
               title: "Posted Successfully ✅",
               duration: 2000,
@@ -79,11 +80,16 @@ export default function Composecard() {
               duration: 2000,
             });
           }
+        } else {
+          toast({
+            title: "File upload failed",
+            duration: 2000,
+          });
         }
       } else {
-        const res = await axios.post("/api/post", data);
+        const postResponse = await axios.post("/api/post", data);
 
-        if (res.status === 200) {
+        if (postResponse.status === 200) {
           toast({
             title: "Posted Successfully ✅",
             duration: 2000,
