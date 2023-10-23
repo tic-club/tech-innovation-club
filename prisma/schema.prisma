@@ -22,6 +22,8 @@ model User {
   forgotPasswordToken String?       @unique
   certificates        Certificate[]
   post                Post[]
+  event               Events[]
+  achivements         Achivements[]
 }
 
 model Certificate {
@@ -49,8 +51,29 @@ model Post {
   @@index([userId], map: "Post_userId_fkey")
 }
 
-model Admin {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
+model Events {
+  id          Int      @id @default(autoincrement())
+  title       String
+  desc        String?
+  imageUrl    String?
+  link        String?
+  userId      Int?
+  User        User?    @relation(fields: [userId], references: [id])
+  startDate   DateTime
+  endDate     DateTime
+  dateCreated DateTime @default(now())
+
+  @@index([userId], map: "Event_userId_fkey")
+}
+
+model Achivements {
+  id       Int      @id @default(autoincrement())
+  title    String
+  desc     String?
+  imageUrl String?
+  userId   Int?
+  User     User?    @relation(fields: [userId], references: [id])
+  date     DateTime @default(now())
+
+  @@index([userId], map: "Achivements_userId_fkey")
 }

@@ -20,7 +20,7 @@ export default function Composecard() {
   const { toast } = useToast();
 
   const [data, setData] = useState({
-    id: null,
+    id: 0,
     caption: "",
     path: "",
   });

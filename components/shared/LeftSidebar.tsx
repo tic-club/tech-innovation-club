@@ -3,23 +3,9 @@ import { sidebarLinks } from "@/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Composecard from "../card/Composecard";
-import Annouscard from "../card/Annouscard";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 function LeftSidebar() {
   const pathname = usePathname();
-
-  const [isAdmin, setIsAdmin] = useState(false);
-
-  useEffect(() => {
-    async function getTokenValue() {
-      const res = await axios.get("/api/getTokenValue");
-      console.log(res.data);
-      setIsAdmin(res.data.isAdmin);
-    }
-    getTokenValue();
-  });
 
   return (
     <section className=" leftsidebar custom-scrollbar fixed left-0 top-0 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r-2 pb-5 pt-28  max-md:hidden">
