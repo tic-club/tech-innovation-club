@@ -11,7 +11,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "TIC_Club",
+  title: "Tech Innovation Club",
   description: "A website for TIC club",
 };
 
@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} max-w-screen-2xl m-auto`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -34,7 +34,7 @@ export default function RootLayout({
           <main className="flex flex-row">
             <LeftSidebar />
             <section className="main-container">
-              <div className="w-full max-w-4xl">{children}</div>
+              <div className="w-full max-w-6xl">{children}</div>
             </section>
             <RightSidebar />
           </main>

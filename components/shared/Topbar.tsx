@@ -62,8 +62,11 @@ function Topbar() {
           alt="logo tic"
           width={40}
           height={40}
+          draggable="false"
         />
-        <p className=" text-heading3-bold max-xs:hidden">TIC Club</p>
+        <p className="text-heading3-bold max-xs:hidden font-semibold">
+          Tech Innovation Club
+        </p>
       </Link>
 
       <div className="flex justify-center items-center gap-2">

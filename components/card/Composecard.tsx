@@ -25,12 +25,17 @@ export default function Composecard() {
     path: "",
   });
   const [file, setFile] = useState(null);
+  const [gr, setGr] = useState(0);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function getTokenId() {
       try {
         const token = await axios.get("/api/getTokenValue");
+        console.log(token.data.gr_no);
+
+        setGr(token.data.gr_no);
+
         setData((prevData) => ({ ...prevData, id: token.data.id }));
       } catch (error) {
         console.error("Error fetching token:", error);
@@ -54,8 +59,9 @@ export default function Composecard() {
 
       const formData = new FormData();
 
-      if (file) {
+      if (file && gr) {
         formData.append("file", file);
+        formData.append("grNumber", gr.toString());
 
         const uploadResponse = await axios.post("/api/upload-file", formData, {
           headers: {
